@@ -8,6 +8,7 @@ Requirements
 Installation
 Usage
 Playbooks
+saber
 Folder Structure
 License
 Project Overview
@@ -100,6 +101,7 @@ Folder Structure
 Here is the recommended folder structure for this project:
 
 bash
+
 Copier le code
 /project-directory/
 ├── deploy.yaml           # Main playbook to deploy the web app
