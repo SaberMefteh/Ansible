@@ -19,9 +19,10 @@ pipeline {
         stage('Deploy') {
             steps {
                 withCredentials([azureServicePrincipal(
-                    credentialsId: 'demoServicePrincipal'
+                    credentialsId: 'demoAnsibleAppService'  // Make sure this matches the correct credential ID
                 )]) {
                     azureWebAppPublish(
+                        azureCredentialsId: 'demoAnsibleAppService', // Ensure this matches the credential ID too
                         resourceGroup: 'demo',
                         appName: 'demoAnsible',
                         filePath: '**/*.zip'
