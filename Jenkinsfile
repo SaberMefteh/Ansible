@@ -18,7 +18,15 @@ pipeline {
         }
         stage('Deploy') {
             steps {
-                echo 'Deploying...'
+                withCredentials([azureServicePrincipal(
+                    credentialsId: 'demoServicePrincipal'
+                )]) {
+                    azureWebAppPublish(
+                        resourceGroup: 'demo',
+                        appName: 'demoAnsible',
+                        filePath: '**/*.zip'
+                    )
+                }
             }
         }
     }
